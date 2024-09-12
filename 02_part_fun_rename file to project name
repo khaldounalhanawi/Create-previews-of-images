@@ -1,0 +1,21 @@
+txt=r'R:\01_renderkitchen\01_projekte\782 Paco\08 Delivery\HIGH\240425_Paco_Halle_Kam_Seitlich_HIGH.jpg'
+
+import re
+
+def attachprojectname(txt):
+    pattern=r'[^\\]+$'
+    filename=re.findall(pattern,txt)
+    
+    patternproj=r'projekte\\([^\\]+[^\\])'
+    projectname=re.findall(patternproj,txt)
+    
+    stxt= txt.split('\\')
+    stxt.pop(-1)
+    path='\\'.join(stxt)
+    
+    print(path+'\\'+projectname[0]+'_'+filename[0])
+
+    
+    
+attachprojectname(txt)
+
